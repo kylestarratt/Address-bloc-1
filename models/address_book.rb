@@ -20,6 +20,16 @@ class AddressBook
     @entries.insert(index, Entry.new(name, phone_number, email))
   end
 
+  def iterative_search(name)
+    @entries.each do |entry|
+      if entry.name == name
+        return entry
+      end
+    end
+
+    return nil 
+  end
+
   def binary_search(name)
     lower = 0
     upper = @entries.length - 1
